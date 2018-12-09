@@ -4,14 +4,16 @@ using BookStack.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookStack.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181119000328_AddingProductTypeInTheDatabase")]
+    partial class AddingProductTypeInTheDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,7 +30,7 @@ namespace BookStack.Data.Migrations
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnName("ProductTypeName")
-                        .HasColumnType("varchar(200)")
+                        .HasColumnType("varchar")
                         .HasMaxLength(100);
 
                     b.HasKey("Id")
